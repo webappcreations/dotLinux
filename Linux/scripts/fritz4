@@ -1,0 +1,8 @@
+#
+# lpr document Seitenanzahl
+# Drucke ein Dokument in viererKacheln in hoher Qualität Schwarz-weiß die Seite ausfüllend in verkehrter Reihenfolge,
+# wobei die Seitenzahl immer einen viererblock bezeichnet. 
+
+[ -z "$1 $2" ] && exit 1
+
+lpr -P fritz.box -o colorModel=CMYGray -o fit-to-page -o outputorder=reverse -o page-ranges=$2 -o number-up=4 -o number-up-layout=lrbt $1

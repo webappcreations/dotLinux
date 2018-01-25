@@ -1,0 +1,48 @@
+--The vertical position of the text. POS can be top, middle, or bottom. The default is top.
+local osd_pos="top"
+--The number of pixels the text is offset from the top or bottom of the display. The default is 0.
+local osd_offset=44
+--The horizontal alignment of the text. ALIGN can be left, centre or right. The default is centre.
+local osd_align="right"
+--The number of pixels the text is indented from the left or right of the display. The default is 0.
+local osd_indent=0
+--The font used to display the text. The default is fixed, which may be too small to see clearly.
+local osd_font="-adobe-helvetica-bold-*-*-*-14-*-*-*-*-*-*-*"
+--The text colour. The default is red.
+local osd_colour="red"
+--The number of seconds the text is displayed before being removed from the display. The default is 5.
+local osd_delay=100
+--The maximum number of lines that can be displayed. The default is 5.
+local osd_lines=5
+--The number of pixels the shadow is offset behind the text. The default is 0, so no shadow is displayed.
+local osd_shadow=1
+--The colour of the shadow. The default is black.
+local osd_shadowcolour="black"
+--The width of the outline, in pixels. The default is 0, so no outline is displayed.
+local osd_outline=1
+--The colour of the outline. The default is black.
+local osd_outlinecolour="black"
+--This option affects screen redrawing. If SCROLL_AGE seconds pass before a new line is ready (for example, you're reading from a pipe), the display is cleared instead of being scrolled. The default is 0, which means all lines are added to the scroll.
+osd_age=100
+
+local clients = {}
+
+local oldOnTalkStatusChangeEvent = onTalkStatusChangeEvent;
+
+function onTalkStatusChangeEvent(serverConnectionHandlerID, status, isReceivedWhisper, clientID)
+    oldOnTalkStatusChangeEvent(serverConnectionHandlerID, status, isReceivedWhisper, clientID)
+    local msg="";
+    clients[clientID]=status;
+    for k,v in pairs(clients) do
+        if (v==1) then
+            local clientName, error = ts3.getClientVariableAsString(serverConnectionHandlerID, k, ts3defs.ClientProperties.CLIENT_NICKNAME);
+            msg = msg .. "\n" .. clientName;
+        end
+    end
+    if (msg=="") then
+        os.execute("killall osd_cat")
+        return
+    end
+    os.execute("killall osd_cat")
+    os.execute("echo \"" .. msg .. "\" | osd_cat --pos=" .. osd_pos .. " --offset=" .. osd_offset .. " --align=" .. osd_align .. " --indent=" .. osd_indent .. " --font=" .. osd_font .. " --colour=" .. osd_colour .. " --delay=" .. osd_delay .. " --lines=" .. osd_lines .. " --shadow=" .. osd_shadow .. " --shadowcolour=" .. osd_shadowcolour .. " --outline=" .. osd_outline .. " --outlinecolour=" .. osd_outlinecolour .. " --age=" .. osd_age .. " &")
+end

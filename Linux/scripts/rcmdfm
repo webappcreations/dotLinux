@@ -1,0 +1,11 @@
+#
+# recordmydesktop --follow-mouse
+#
+#
+
+[ -z "$1" ] && exit 1
+#recordmydesktop -o ~/rcmd/$1.ogv
+#recordmydesktop --follow-mouse -x 100 - y 100 --width 500 --height 300 -o /$HOME/rcmd/$1.ogv
+
+recordmydesktop -v_quality 50 --follow-mouse --width 500 --height 300 -o /home/goalador/rcmd/$1.ogv
+ls /home/goalador/rcmd

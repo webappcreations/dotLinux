@@ -1,0 +1,16 @@
+#
+
+# vim: ft=zsh ts=4
+
+icon() {
+    
+        ac_state=`cat /proc/acpi/ac_adapter/AC/state |grep off-line`
+        
+            if [[ $ac_state == "" ]]; then
+                    print -n "^i(/home/buttons/.bitmaps/power-ac.xbm)"
+                        else
+                                print -n "^i(/home/buttons/.bitmaps/power-bat.xbm)"
+                                    fi
+                                    }
+                                    
+                                    print "$(icon)"

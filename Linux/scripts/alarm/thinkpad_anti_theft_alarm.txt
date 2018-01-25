@@ -1,0 +1,64 @@
+#!/usr/bin/python
+
+# Janitha's Thinkpad Anti Theft Script
+# janitha at janitha dot com
+#
+# modified for KDE support by Colin Verot
+
+import fileinput
+import os
+import time
+import sys
+
+hdaps = "/sys/devices/platform/hdaps/position"
+threshold_alert = 10
+threshold_alarm = 50
+
+sound_armed = "~/scripts/antitheft/armed.wav"
+sound_alert = "~/scripts/antitheft/alert.wav"
+sound_alarm = "~/scripts/antitheft/alarm.wav"
+
+####################################################
+
+os.system("/usr/bin/kdesktop_lock --forcelock &")
+time.sleep(1)
+os.system("play " + sound_armed + "  2> /dev/null")
+
+file = open(hdaps)
+value = file.readline()
+bx = int(value.partition("(")[2].partition(",")[0])
+by = int(value.partition(",")[2].partition(")")[0])
+print bx
+print by
+file.close()
+x = bx
+y = by
+
+while x > bx-threshold_alarm and x < bx+threshold_alarm and y > by-threshold_alarm and y < by+threshold_alarm:
+
+    time.sleep(0.05)
+    # Read HDAPS values
+    file = open(hdaps)
+    value = file.readline()
+    x = int(value.partition("(")[2].partition(",")[0])
+    y = int(value.partition(",")[2].partition(")")[0])
+    file.close()
+
+    if x < bx-threshold_alert or x > bx+threshold_alert or y < by-threshold_alert or y > by+threshold_alert:
+        diff = abs(bx-x) + abs(by-y)
+        gain_diff = (int((diff*100.0) / (threshold_alarm))*2) / 20 - 1
+        print "alert",gain_diff
+        cmd = "play" + " --volume " + `gain_diff` + " " + sound_alert + "  2> /dev/null"
+        os.system(cmd)
+
+    if ''.join(os.popen('ps aux').readlines()).find('kdesktop_lock') < 0:
+        sys.exit(0)
+
+while 1:
+
+    if ''.join(os.popen('ps aux').readlines()).find('kdesktop_lock') < 0:
+        sys.exit(0)
+
+    print "Alarm!"
+    os.system("play " + " --volume 3 " + sound_alarm + "  2> /dev/null")
+    time.sleep(1)

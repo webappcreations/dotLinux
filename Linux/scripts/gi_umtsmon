@@ -1,0 +1,9 @@
+#gi - Get and install UMTSmon:
+
+
+cd ~/Downloads/
+#wget http://sourceforge.net/projects/umtsmon/files/umtsmon/umtsmon-0.9/umtsmon-0.9.i386.tar.gz
+#wget http://sourceforge.net/projects/umtsmon/files/umtsmon/0.10alpha2/umtsmon-0.10alpha2.i386.tar.gz
+#tar xzf umtsmon-0.10alpha2.i386.tar.gz
+sudo cp umtsmon-0.10alpha2/umtsmon /usr/local/bin
+sudo chmod 755 /usr/local/bin/umtsmon

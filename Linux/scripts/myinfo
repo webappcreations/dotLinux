@@ -1,0 +1,11 @@
+#
+# myinfo
+# zeigt eigene Systeminformationen an
+#
+
+hostname
+uname
+echo $HOME
+whoami
+
+

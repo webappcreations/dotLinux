@@ -1,0 +1,14 @@
+#
+# printin
+#
+#
+
+[ -z "$1" ] && exit 1
+
+lpr -o ColorModel=KGray -o outputorder=reverse -P 6500-E709a $1
+
+#on Manjaro i3:
+#system-config-printer-applet
+
+#list printers:
+#lpstat -p -d

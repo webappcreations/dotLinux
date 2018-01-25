@@ -1,0 +1,5 @@
+for filename in $PWD/*.png
+do
+  #echo $filename
+  convert -crop 1010x630+0+100 +repage $filename $filename
+done;

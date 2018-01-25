@@ -1,0 +1,3 @@
+#https://bbs.archlinux.org/viewtopic.php?pid=307990#p307990
+
+for i in *.png; do convert -scale 14x14 "$i" "${i%%.*}-scaled.xbm"; done

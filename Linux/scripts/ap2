@@ -1,0 +1,9 @@
+#
+# ap2
+# start von lampp...
+#
+
+sudo /etc/init.d/apache2 stop
+MYSQLDPID=`ps -C mysqld -o pid=`
+sudo kill $MYSQLDPID
+sudo /opt/lampp/lampp start

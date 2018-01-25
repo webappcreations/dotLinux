@@ -1,0 +1,20 @@
+# https://bbs.archlinux.org/viewtopic.php?id=40637  Beitrag buttons um: 2007-12-04 20:34:23
+
+# vim:ft=zsh ts=4
+
+myvol() {
+
+    percentage=`amixer |grep -A 6 \'Front\' |awk {'print $5'} |grep -m 1 % |sed -e 's/[][%]//g'`
+        ismute=`amixer |grep -A 6 \'Front\'|awk {'print $7'} |grep -m 1 "[on|off]" | sed -e 's/[][]//g'`
+        
+            if [[ $ismute == "off" ]]; then
+                    print -n "$(echo "0" | gdbar -fg '#aecf96' -bg gray40 -h 7 -w 60)"
+                        else
+                                print -n "$(echo $percentage |gdbar -fg '#aecf96' -bg gray40 -h 7 -w 60)"
+                                    fi
+                                    }
+                                    
+                                    while true; do
+                                        print "^i(/home/buttons/.bitmaps/volume.xbm)$(myvol)"
+                                            sleep 1
+                                            done

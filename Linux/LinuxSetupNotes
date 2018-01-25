@@ -1,0 +1,99 @@
+
+
+#stty -ixon in a startup script. To allow any key to get things flowing again, use stty ixany
+
+
+
+Mousepad:
+install xf86-input-libinput
+
+touch: /etc/X11/xorg.conf.d/30-touchpad.conf
+add:
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "TappingButtonMap" "lmr"
+EndSection
+
+=> restart!? touchpad Tapping is now activated! Tapping with two fingers: paste from clipboard!
+
+
+
+Arch Linux add GPG-Keys (eg. for Scribus devel...) 
+So, I added the key to my keyring:
+
+$ gpg --recv-key 1EB2638FF56C0C53
+gpg: key F56C0C53: public key "Dave Reisner <d@falconindy.com>" imported
+gpg: no ultimately trusted keys found
+gpg: Total number processed: 1
+gpg:               imported: 1
+
+And was able to successfully create the package.
+
+
+
+Vim:
+export EDITOR=/usr/bin/vim
+
+
+.vimrc:
+set pastetoggle=<F3>
+set clipboard=unnamedplus #doesnt seem to work like i want it to...
+
+#the command: ":w !sudo tee % > /dev/null" saves an edited file as root, here its set to be used by: ":Sw" 
+#so no need to run sudo vim without getting the normal vim setup for the user... (root needs it's own .vimrc)
+
+command! -nargs=0 Sw w !sudo tee % > /dev/null
+
+#todo adding quit...
+command! -nargs=0 Swq wq !sudo tee % > /dev/null
+
+
+Setting up dotfiles: Not all working well...
+https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789#.m2i0hk2k1
+
+for DOTFILE in `find /Users/lars/Projects/.dotfiles`
+do
+  [ -f “$DOTFILE” ] && source “$DOTFILE”
+done
+
+i3 notes:
+On Laptop i3status.conf needs a missing path line: "path = "/sys/class/power_supply/BAT1/uevent"" in battery 0... to work.
+
+
+bindsym $mod+Tab focus right
+bindsym Mod1+Shift+Tab focus left
+
+
+
+
+
+Based on The X Window User HOWTO:
+
+startx will start X by first invoking xinit.
+xinit will look for a ~/.xinitrc file in the user's home directory, to run as a shell script.
+xinitrc is used to set up a suitable X environment, and to launch other programs, a.k.a "clients" that we may want available as soon as X is started.
+The Window Manager, or desktop environment, is typically the last application started.
+The other, more common, approach is the "GUI log-in", where X is running before log-in. X includes xdm (X Display Manager) for this purpose.
+Now, ~/.xsession for xdm is the rough equivalent of ~/.xinitrc for startx.
+Depending on how you start X, either the ~/.xinitrc or the ~/.xsession file will be executed by the server.
+Finally, if you execute i3wm from ~/.xinitrc or ~/.xsession, then i3wm will read its initial configuration from ~/.i3/config.
+Done.
+Given that, you may like to maintain single version of your personal startup script for X:
+
+Create the script ~/.xinitrc with your initial settings.
+Make symbolic link for xdm equivalent:
+
+$ ln -s $HOME/.xinitrc $HOME/.xsession
+
+
+
+
+
+
+
+
+
+

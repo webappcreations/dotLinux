@@ -1,0 +1,6 @@
+#
+#
+#
+#
+cd /home/goalador/Documents/Magisterarbeit/mPrüfung/sed
+sed -n 's/\Afs\?e\?{.*}/&\n/p' test.txt

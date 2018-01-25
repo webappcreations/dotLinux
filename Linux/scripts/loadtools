@@ -1,0 +1,6 @@
+#
+# if this file exists, .bashrc will run it.
+# 
+#
+
+xbindkeys &

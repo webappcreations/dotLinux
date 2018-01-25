@@ -1,0 +1,7 @@
+#
+# printin
+#
+#
+
+[ -z "$1" ] && exit 1
+lpr -o ColorModel=KGray -o outputorder=reverse -P Officejet_6500_E709a $1

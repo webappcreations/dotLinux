@@ -1,0 +1,9 @@
+#
+# lpr document Seitenanzahl
+# Drucke ein Dokument in hoher Qualität Schwarz-weiß die Seite ausfüllend in verkehrter Reihenfolge und jene angebenen Seiten 
+#
+
+[ -z "$1 $2" ] && exit 1
+
+#lpr -P fritz.box -o colorModel=CMYGray -o fit-to-page -o outputorder=reverse -o page-ranges= -o number-up=4 -o number-up-layout=lrbt ss12_vl_testtheorie_01.pdf 
+lpr -P fritz.box -o colorModel=CMYGray -o fit-to-page -o outputorder=reverse -o page-ranges=$2 $1

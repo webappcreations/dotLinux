@@ -1,0 +1,1 @@
+mkdir -pv Album/{config,src/Album/{Controller,Form,Model},view/album/album}

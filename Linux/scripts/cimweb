@@ -1,0 +1,3 @@
+
+
+mplayer -ontop -noborder   -geometry 320x240+1240+640   -tv driver=v4l2:width=320:height=240:device=/dev/video0 tv://

@@ -1,0 +1,6 @@
+#!/bin/sh
+while [ $# -gt 0 ]; do
+       filename=$1
+              pdf_file=`echo "$filename" | sed 's/\.[tT][iI][fF][fF]*/.pdf/'`
+                     convert "$filename" "$pdf_file"
+                            shift

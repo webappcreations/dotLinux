@@ -1,0 +1,9 @@
+#FONT="-bitstream-bitstream vera serif-*-*-*-*-550-*-100-100-*-*-iso8859-15"
+
+#[ -z "$1 $2 $3" ] && exit 1
+
+
+echo "howto keybind msg to a combination" | osd_cat --font="$FONT" -l 1 -s 5 -c '#009BF9' -p bottom -A right -o 30
+
+
+

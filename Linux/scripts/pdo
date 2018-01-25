@@ -1,0 +1,30 @@
+#
+#
+# pomodoro
+#
+
+[ -z "$1" ] && exit 1
+
+FONT="-misc-dejavu sans light-extralight-r-normal--30-0-0-0-p-0-iso8859-1"
+
+#echo "Hello World" | osd_cat --font="$FONT" -l 1 -s 5 -c '#009BF9' -p middle -A center
+
+
+
+#alias qb = "qiv -p -w 40 -t ~/gimp/button_80.png -s -d 10 -C"
+qb="qiv -p -w 40 -t /home/goalador/gimp/button_80.png -s -d 10 -C"
+
+for i in $(seq 1 25); do
+  #echo $1 | osd_cat --font="$FONT" -l 1 -s 10 -c '#ffffff' -p top -o 60  -A right -i 100;
+ #i+1;
+  #sleep 1;
+  #$qb& 
+  #qiv -p -w 40 -t /home/goalador/gimp/button_80.png -s -d 10 -C
+  echo $i | osd_cat --font="$FONT" -l 1 -s 10 -c '#ffffff' -p top -o 60  -A right -i 100;
+  sleep 1m;
+  #sleep 20;
+done
+  echo "X" | osd_cat --font="$FONT" -l 1 -s 10 -c '#ffffff' -p top -o 60  -A right -i 100;
+
+
+

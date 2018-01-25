@@ -1,0 +1,6 @@
+[ -z "$1" ] && exit 1
+
+
+sudo mount /dev/sd$11 /mnt/usb
+cd /mnt/usb
+ls

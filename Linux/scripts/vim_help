@@ -1,0 +1,75 @@
+#!/bin/bash
+# 28-09-2012 goalador
+
+### apache2 - Notes on apache2
+export TERM=xtermc
+echo ""
+ tput bold;tput setf 2;
+echo "  VIM HELP"
+echo "http://gatanda.com/linux/bash/help"
+echo "---------------------------------------------------------------"
+
+echo ""
+echo ""
+
+tput sgr0;tput setf 1;
+echo "Useful Commands:"
+echo "---------------------"
+
+tput setf 7;
+echo "
+:split duplicate the open file into a new area on top
+:vsplit vertical split
+
+
+
+
+:close
+:wqall write and close all windows
+"
+
+echo "
+CTRL W hjkl change focus
+CTRL W HJKL change position
+amount CTRL W +/- change window height by amount +/-
+amount CTRL W </> change window width by amount >/<
+
+u/CRTL R undo
+
+
+vim settings:
+set number? show linenumber-setting
+set number! toggle linenumber
+set mouse=a turn on all mouse-features
+
+
+
+"
+echo ""
+
+tput sgr0;tput setf 1;
+echo "Files needed:"
+echo "---------------------"
+
+tput setf 5;
+echo "
+example
+console.log();
+"
+
+
+
+tput setf 4;
+echo "C-a c :Creates new window"
+
+tput setf 2;
+echo "MultiUser Mode:"
+ tput setf 6;
+echo "START WITH:"
+echo "Press Ctrl+a, then type :acladd USERNAME"
+echo ""
+tput bold;tput setf 7;
+echo "---------------------------------------------------------------"
+tput sgr0
+echo " "
+exit 0

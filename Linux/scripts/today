@@ -1,0 +1,2 @@
+ls -hal --time-style=+%D | grep --color=auto `date +%D`
+#ls -hal --time-style=`date --date="-a day"`| grep --color=auto `date --date="-a day"`

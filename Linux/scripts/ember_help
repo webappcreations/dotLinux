@@ -1,0 +1,321 @@
+#!/bin/bash
+# 28-09-2012 goalador
+
+### apache2 - Notes on apache2
+export TERM=xtermc
+echo ""
+ tput bold;tput setf 2;
+echo "  VIM HELP"
+echo "http://gatanda.com/linux/bash/help"
+echo "---------------------------------------------------------------"
+
+echo ""
+echo ""
+
+tput sgr0;tput setf 1;
+echo "Useful Commands:"
+echo "---------------------"
+
+tput setf 7;
+echo "
+
+the emberbasics are quite simple but effective
+
+
+
+handlebars for html
+
+App = Ember.Application.create();
+
+App.Router.map(function) {
+  this.resource('about')
+  this.resource('post')
+});
+
+App.PostsRoute = Ember.Route.extend({
+  model: function() {
+    return App.Post.find();
+  }
+});
+
+
+App.Post = DS.Model.extend({
+  title: DS.attr('string'),
+  autthor: DS.attr('string'),
+  intro: DS.attr('string')
+  extended: DS.attr('string'),
+  publishedAt: DS.attr('date')
+});
+
+
+App.Post.FIXTURES = [{
+  id: 1,
+  title: "Rails is Omakase",
+  author: "d2h",
+  publishedAt: new Date('12-27-2012'),
+  intro: "There are a lot of beautiful houses in Hamburg city",
+  extended: "Well here should be a lorem ipsum text in full length. I guess you get the idea"
+}, {
+  id: 2,
+   title: "Rails is Omakase",
+  author: "d2h",
+  publishedAt: new Date('12-27-2012'),
+  intro: "There are a lot of beautiful houses in Hamburg city",
+  extended: "Well here should be a lorem ipsum text in full length. I guess you get the idea"
+}];
+
+
+
+
+window t for fixing window on top in awesome
+
+
+"
+
+echo "
+CTRL W hjkl change focus
+
+
+what is a single page application for emberjs?
+I have read a tutorial where it started by saying that ember is a tool quite about sycronising
+
+
+
+ember-metal
+  ember.binding:
+    bind object properties to eachother so if one changes the other one will too.
+
+
+    "Properties ending in a Binding suffix will be converted to Ember.Binding instances."
+    valueBinding: "MyApp.someController.title".
+
+    one way bindings are also posible:
+    bigTitlesBinding: Ember.Binding.oneWay("MyApp.preferencesController.bigTitles")
+    -> almost twice as fast
+
+
+
+
+"
+echo "Ember.CollectionView:
+
+someItemsView = Ember.CollectionView.create({
+  //tagName: 'ul',
+  classNames: ['a-collection'],
+    content: ['A','B','C'],
+      itemViewClass: Ember.View.extend({
+          template: Ember.Handlebars.compile("the letter: {{view.content}}")
+            })
+        });
+
+        someItemsView.appendTo('body');
+
+        <div class="ember-view a-collection">
+        <!--<li class="ember-view">the letter: A</li>-->
+        <div class="ember-view">the letter: A</div>
+        <div class="ember-view">the letter: B</div>
+        <div class="ember-view">the letter: C</div>
+        </div>
+
+
+
+Setting the tagName property of a CollectionView to any of "ul", "ol", "table", "thead", "tbody", "tfoot", "tr", or "select" will result in the item views receiving an appropriately matched tagName property.
+
+ADDING AND REMOVING ITEMS
+The childViews property of a CollectionView should not be directly manipulated. Instead, add, remove, replace items from its content property. This will trigger appropriate changes to its rendered HTML.
+
+"
+
+echo "
+App.Person = Ember.Object.extend(Ember.Evented, {
+  greet: function() {
+      // ...
+          this.trigger('greet');
+            }
+        });
+
+        var person = App.Person.create();
+
+        person.on('greet', function() {
+          console.log('Our person has greeted');
+      });
+
+      person.greet();
+
+      // outputs: 'Our person has greeted'
+
+"
+
+echo "
+EVENT DELEGATION
+Ember uses a technique called event delegation. This allows the framework to set up a global, shared event listener instead of requiring each view to do it manually. For example, instead of each view registering its own mousedown listener on its associated element, Ember sets up a mousedown listener on the body.
+
+If a mousedown event occurs, Ember will look at the target of the event and start walking up the DOM node tree, finding corresponding views and invoking their mouseDown method as it goes.
+
+"
+
+
+echo "
+Ember.Select:
+
+App.programmers = [
+  Ember.Object.create({firstName: "Yehuda", id: 1}),
+  Ember.Object.create({firstName: "Tom",    id: 2})
+];
+
+{{view Ember.Select
+           contentBinding="App.programmers"
+                  optionValuePath="content.id"
+                         optionLabelPath="content.firstName"}}
+
+<select class="ember-select">
+  <option value>Please Select</option>
+    <option value="1">Yehuda</option>
+      <option value="2">Tom</option>
+      </select>
+
+
+
+"
+
+echo "
+
+robotManager = Ember.StateManager.create({
+  initialState: 'poweredDown',
+    poweredDown: Ember.State.create({}),
+      poweredUp: Ember.State.create({})
+  })
+
+  robotManager.get('currentState.name') // 'poweredDown'
+  robotManager.transitionTo('poweredUp')
+  robotManager.get('currentState.name') // 'poweredUp'
+
+Once a StateManager is already in a state, subsequent attempts to enter that state will not trigger enter or exit method calls. Attempts to transition into a state that the manager does not have will result in no changes in the StateManager's current state:
+
+robotManager = Ember.StateManager.create({
+  initialState: 'poweredDown',
+    poweredDown: Ember.State.create({
+        exit: function(stateManager){
+              console.log("exiting the poweredDown state")
+                  }
+                    }),
+                      poweredUp: Ember.State.create({
+                          enter: function(stateManager){
+                                console.log("entering the poweredUp state. Destroy all humans.")
+                                    }
+                                      })
+                                  })
+
+for development purposes:
+robotManager = Ember.StateManager.create({
+  enableLogging: true
+  })
+
+
+
+
+"
+
+echo "
+
+decrement/incrementProperty:
+
+person.incrementProperty('age'); //default = 1
+team.incrementProperty('score', 2);
+
+"
+
+echo "
+SPECIFYING A ROUTE'S MODEL
+In the router, each URL is associated with one or more route handlers. The route handler is responsible for converting the URL into a model object, telling a controller to represent that model, then rendering a template bound to that controller.
+
+
+
+"
+
+
+echo "
+
+
+
+<!-- application.handlebars -->
+<header>
+  {{view Ember.TextField valueBinding="search" action="query"}}
+  </header>
+
+  {{outlet}}
+
+App.ApplicationController = Ember.Controller.extend({
+  // the initial value of the `search` property
+    search: '',
+
+      query: function() {
+          // the current value of the text field
+              var query = this.get('search');
+                  this.transitionToRoute('search', { query: query });
+                    }
+                });
+
+"
+
+
+
+echo "
+App.SongController = Ember.ObjectController.extend({
+  duration: function() {
+      var duration = this.get('model.duration'),
+               minutes = Math.floor(duration / 60),
+                        seconds = duration % 60;
+
+                            return [minutes, seconds].join(':');
+                              }.property('model.duration')
+                          });
+"
+
+
+echo "
+To be able to do this we define our CommentsController to need the PostController which has our desired Post model.
+
+App.CommentsController = Ember.ArrayController.extend({
+  needs: "post"
+  });
+
+
+<h1>Comments for {{controllers.post.title}}</h1>
+
+<ul>
+  {{#each comment in controller}}
+      <li>{{comment.text}}</li>
+        {{/each}}
+        </ul>
+
+"
+
+
+
+
+tput sgr0;tput setf 1;
+echo "Files needed:"
+echo "---------------------"
+
+tput setf 5;
+echo "
+example
+"
+
+
+
+tput setf 4;
+echo "C-a c :Creates new window"
+
+tput setf 2;
+echo "MultiUser Mode:"
+ tput setf 6;
+echo "START WITH:"
+echo "Press Ctrl+a, then type :acladd USERNAME"
+echo ""
+tput bold;tput setf 7;
+echo "---------------------------------------------------------------"
+tput sgr0
+echo " "
+exit 0

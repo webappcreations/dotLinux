@@ -1,0 +1,3 @@
+conky | sed -e "s/'/\\\'/g" | while read -r line; do
+    echo -E "conky_widget:set_text('$line')" | awesome-client
+done

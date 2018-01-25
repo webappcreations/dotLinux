@@ -1,0 +1,11 @@
+#
+# sce Skriptname
+# Erstellen oder Verändern eines Shellscripts
+#
+
+[ -z "$1" ] && exit 1
+
+geany $HOME/skripte/$1
+
+chmod +x $HOME/skripte/$1
+

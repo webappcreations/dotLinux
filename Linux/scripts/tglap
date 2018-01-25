@@ -1,0 +1,13 @@
+
+if [[ -z $TGLAP ]] ; then    #checks if the variable is unset...
+    #xrandr --output LVDS1 --off;
+    echo ${TGLAP};
+    export TGLAP=1234;
+    echo ${TGLAP};
+    
+else
+    #xrandr --output VGA1 --off --output LVDS1 --mode 1024x768 --pos 0x0;
+    unset TGLAP;
+    echo ${TGLAP};
+    echo "The else";    
+fi

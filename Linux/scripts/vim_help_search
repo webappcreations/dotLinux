@@ -1,0 +1,11 @@
+echo " 
+Search and replace
+To search for a word or character in the file, simply use / and then the characters your are searching for and press enter. To view the next match in the search press n, press N for the previous match.
+To search and replace use the substitute :s/ command. The syntax is: [range]s///[arguments]. For example:
+Command        Outcome
+:s/xxx/yyy/    Replace xxx with yyy at the first occurence
+:s/xxx/yyy/g   Replace xxx with yyy first occurrence, global (whole sentence)
+:s/xxx/yyy/gc  Replace xxx with yyy global with confirm
+:%s/xxx/yyy/g  Replace xxx with yyy global in the whole file
+You can use the global :g/ command to search for patterns and then execute a command for each match. The syntax is: [range]:g//[cmd].
+"

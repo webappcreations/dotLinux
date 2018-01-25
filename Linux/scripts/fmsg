@@ -1,0 +1,19 @@
+#FONT="-sony-fixed-medium-r-normal--24-230-75-75-c-120-iso8859-1"
+#FONT="-misc-dejavu sans light-extralight-r-normal--0-0-0-0-p-0-iso8859-1"
+FONT="-misc-dejavu sans light-extralight-r-normal--40-0-0-0-p-0-iso8859-1"
+#FONT="-adobe-helvetica-bold-*-*-*-100-*-*-*-*-*-*-*"
+#FONT="-*-*-bold-r-normal-*-40-*-*-*-*-*-iso8859-*"
+#FONT="-bitstream-bitstream vera serif-*-*-*-*-550-*-100-100-*-*-iso8859-15"
+
+[ -z "$1 $2 $3" ] && exit 1
+
+
+echo "$1 $2 $3" | osd_cat --font="$FONT" -l 1 -s 5 -c '#009BF9' -p bottom -A right -o 30
+
+
+
+#osd_cat -b percentage -P 20 --text Status: --font="$FONT"
+#osd_cat -b slider -P 20  -A center -p middle -s 5 -c '#009BF9' --font="$FONT"
+
+
+

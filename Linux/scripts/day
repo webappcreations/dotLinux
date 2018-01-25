@@ -1,0 +1,15 @@
+#sce
+# hs grep histroy.sav
+# Erstellen oder Verändern eines Shellscripts
+# 
+
+[ -z "$1" ] && exit 1
+
+
+DAY=`date +%d`
+MONTH=`date +%m`
+YEAR=`date +%y`
+#echo "$MONTH"
+
+#ls -al --time-style=+%D | grep --color=auto -e "[1-9][1-9]/$MONTH/12"
+ls -al --time-style=+%D | grep --color=auto -e "$MONTH/$1/$YEAR"

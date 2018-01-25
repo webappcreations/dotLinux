@@ -1,0 +1,3 @@
+for 1 in 10;
+DZDATE=`date`
+do sleep 20 | echo $DZDATE;  

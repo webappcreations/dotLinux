@@ -1,0 +1,24 @@
+#
+#
+# pomodoro
+#
+
+[ -z "$1" ] && exit 1
+
+FONT="-misc-dejavu sans light-extralight-r-normal--40-0-0-0-p-0-iso8859-1"
+
+#echo "Hello World" | osd_cat --font="$FONT" -l 1 -s 5 -c '#009BF9' -p middle -A center
+
+
+
+
+
+for i in $(seq 1 20); do
+  echo $1 | osd_cat --font="$FONT" -l 1 -s 5 -c '#009BF9' -p middle -A center;
+  #sleep 1m;
+   sleep 10;
+ #i+1;
+  echo $i | osd_cat --font="$FONT" -l 1 -s 5 -c '#009BF9' -p middle -A center;
+done
+
+

@@ -1,0 +1,25 @@
+#
+# sce Skriptname
+# Erstellen oder Verändern eines Shellscripts
+#
+
+[ -z "$1" ] && exit 1
+
+vim $HOME/skripte/$1
+
+chmod +x $HOME/skripte/$1
+
+
+
+#~ if [ "$1" = "" ]; then
+   #~ echo "needs a hostname. Exit."
+   #~ exit
+#~ fi
+#~ host=$1
+#~ newmails=$(ssh $host "ls ~/Maildir/new | wc -l")
+#~ if [ "$newmails" -eq "0" ]
+#~ then
+        #~ echo "0"
+#~ else
+        #~ echo "**<fc=white>Email:$newmails</fc>**"
+#~ fi

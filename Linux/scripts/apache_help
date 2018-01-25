@@ -1,0 +1,53 @@
+#!/bin/bash
+# 28-09-2012 goalador
+ 
+### apache2 - Notes on apache2
+export TERM=xtermc
+echo ""
+ tput bold;tput setf 2;
+echo " Crouse's Screen Notes"
+echo "http://en.gentoo-wiki.com/wiki/Screen"
+echo "---------------------------------------------------------------"
+
+
+tput sgr0;tput setf 1;
+echo "Useful Commands:"
+echo "---------------------"
+
+tput setf 5;
+echo "
+sudo /etc/rc.d/httpd start
+sudo /etc/rc.d/httpd restart
+"
+
+
+tput sgr0;tput setf 1;
+echo "Files needed:"
+echo "---------------------"
+
+tput setf 5;
+echo"
+1. /etc/http/conf/http.conf 
+2. /etc/httpd/conf/extra/httpd-vhosts.conf 
+3. /etc/vhosts
+"
+
+
+
+tput setf 4;
+echo "C-a c :Creates new window"
+
+tput setf 2;
+echo "MultiUser Mode:"
+ tput setf 6;
+echo "START WITH:"
+echo "Press Ctrl+a, then type :multiuser on and press Enter."
+echo "Press Ctrl+a, then type :acladd USERNAME"
+echo "CONNECT WITH:"
+echo "screen -x USERNAME/"
+echo ""
+tput bold;tput setf 7;
+echo "---------------------------------------------------------------"
+tput sgr0
+echo " "
+exit 0

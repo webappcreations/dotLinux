@@ -1,0 +1,9 @@
+
+
+
+#
+
+
+
+
+#  today | grep 23h46 | \rm `awk '{print $7}'` # zeige alle dateien in diesem Ordner von heute an, suche die files um..., lösche (ohne nachfrage) die "datei(-namen (7))"en

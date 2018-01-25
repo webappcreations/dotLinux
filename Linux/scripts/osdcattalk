@@ -1,0 +1,19 @@
+#FONT="-misc-dejavu sans light-extralight-r-normal--0-0-0-0-p-0-iso8859-1"
+#FONT="-misc-dejavu sans light-extralight-r-normal--40-0-0-0-p-0-iso8859-1"
+
+#FONT="-*-advent pro-bold-*-*-*-60-*-100-100-*-*-*-*"
+#FONT="-*-aldrich-*-*-*-*-*-*-*-*-*-*-*"
+#FONT="-*-titillium web-black-*-*-*-30-*-*-*-*-*-*-*"
+FONT="-*-titillium web-bold-*-*-*-30-*-*-*-*-*-*-*"
+
+#FONT="-*-*-bold-r-normal-*-40-*-*-*-*-*-iso8859-*"
+#FONT="-bitstream-bitstream vera serif-*-*-*-*-550-*-100-100-*-*-iso8859-15"
+#FONT="-bitstream-bitstream vera serif-*-*-*-*-60-*-100-100-*-*-iso8859-15"
+
+
+osd_cat --font="$FONT" -l 10 -c '#2a588c' -p top -A right -o 50 -i 100
+#osd_cat -b percentage -P 20 --text Status: --font="$FONT"
+#osd_cat -b slider -P 20  -A center -p middle -s 5 -c '#009BF9' --font="$FONT"
+
+
+

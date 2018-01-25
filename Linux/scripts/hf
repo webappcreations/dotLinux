@@ -1,0 +1,40 @@
+
+#sce
+# hs grep histroy.sav
+# Erstellen oder Verändern eines Shellscripts
+# 
+
+[ -z "$1" ] && exit 1
+
+
+RED='\e[0;31m'
+GREEN='\033[32m'
+BLUE='\033[34m'
+BLACK='\033[30m'
+
+BACKGROUND='\033[47m' #doesn't work...
+
+BOLD='\033[1m'
+ULINE='\033[4m'
+BLINK='\033[5m'
+
+CLS='\033[0m'
+
+
+#grep $1 ~/skripte/* | grep 40 > skripte/hs.search.$1.sce
+#grep $1 ~/backup/* | grep 40 > skripte/hs.search.$1.sce
+#grep $1 ~/skripte/history.sav | grep 40 > skripte/hs.search.$1.sce
+
+grep $1 ~/arch/historys/archHistory07122012.txt > ~/arch/historys/hf.search.$1.sce
+
+#clear
+
+echo ""
+echo -e "${RED}${ULINE}$1${CLS} ${BACKGROUND}${BLACK}${BLINK}in${CLS} ${GREEN}$HOME/skripte/hs.search.$1.sce${CLS}:"
+echo ""
+#grep --color=always $1 ~/skripte/hs.search.$1.sce | less -R #Bei großer Ausgabemenge...
+
+grep --color=always $1 ~/arch/historys/hf.search.$1.sce 
+
+
+

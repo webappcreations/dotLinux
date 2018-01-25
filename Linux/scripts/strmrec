@@ -1,0 +1,18 @@
+#
+#
+# record the audio-output (for example streams)
+#
+
+[ -z "$1" ] && exit 1
+
+#record -f cd -d numberofseconds -t raw | lame -x -r – out.mp3
+#
+#arecord -q -f cd -r 44100 -c2 -t raw | lame -S -x -h -b 128 - `date +%Y%m%d%H%M`.mp3
+# 3600 = 1hour
+
+STIME=`date +%H-%M-%S`
+#arecord -f cd -d $1 -t raw | lame -x -r - ~/music/stream/out-$STIME_$1.mp3
+arecord -f cd -d $1 -t raw | lame -x -r - ~/music/stream/out-$STIME_$1.mp3
+#arecord -q -f cd -r 44100 -c2 -t raw | lame -S -x -h -b 128 - ~music/stream/out-`date +%Y%m%d%H%M`.mp3
+
+#funktioniert noch nicht...

@@ -1,0 +1,13 @@
+#!/bin/bash
+#xset -led named 'Scroll Lock';
+#xset led on;
+#sleep 1;
+xset led named 'Scroll Lock';
+#xset led off;
+sleep .5;
+#xset led on;
+xset -led named 'Scroll Lock';
+sleep .5;
+#xdotool key BackSpace;
+xdotool key 2;
+

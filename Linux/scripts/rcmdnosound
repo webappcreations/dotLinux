@@ -1,0 +1,11 @@
+#
+# recordmydesktop
+# --no-sound
+#
+
+[ -z "$1" ] && exit 1
+#recordmydesktop -o ~/rcmd/$1.ogv
+#recordmydesktop --v_quality 63 --v_bitrate 2000000 -o ~/rcmd/$1.ogv
+
+#use external mic
+recordmydesktop --device hw:1,0  --v_quality 63 --v_bitrate 2000000 --no-sound -o ~/rcmd/$1.ogv

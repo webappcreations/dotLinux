@@ -1,0 +1,5 @@
+# https://bbs.archlinux.org/viewtopic.php?pid=304936#p304936
+
+FONT='-misc-dejavu sans light-extralight-r-normal--0-0-0-0-p-0-iso8859-1'
+
+gcpubar -fg '#aecf96' -bg gray40 -h 7 -w 75 | dzen2 -ta l -x 800 -w 275 -bg '#000000' -fg 'grey70' -fn "$FONT" -e '' &

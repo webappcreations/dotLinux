@@ -1,0 +1,104 @@
+#FONT="-sony-fixed-medium-r-normal--24-230-75-75-c-120-iso8859-1"
+#FONT="-misc-dejavu sans light-extralight-r-normal--0-0-0-0-p-0-iso8859-1"
+FONT="-misc-dejavu sans light-extralight-r-normal--40-0-0-0-p-0-iso8859-1"
+#FONT="-adobe-helvetica-bold-*-*-*-100-*-*-*-*-*-*-*"
+#FONT="-*-*-bold-r-normal-*-40-*-*-*-*-*-iso8859-*"
+#FONT="-bitstream-bitstream vera serif-*-*-*-*-550-*-100-100-*-*-iso8859-15"
+osd_cat --font="$FONT" -l 1 -s 5 -c '#009BF9' -p middle -A center
+#osd_cat -b percentage -P 20 --text Status: --font="$FONT"
+#osd_cat -b slider -P 20  -A center -p middle -s 5 -c '#009BF9' --font="$FONT"
+
+
+
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179403, (671,288), root:(671,288),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179560, (671,287), root:(671,287),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179572, (671,286), root:(671,286),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179584, (670,284), root:(670,284),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179595, (670,282), root:(670,282),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179607, (670,280), root:(670,280),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179619, (670,278), root:(670,278),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179630, (669,276), root:(669,276),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179642, (669,275), root:(669,275),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179654, (669,273), root:(669,273),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179666, (668,270), root:(668,270),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179679, (668,268), root:(668,268),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179690, (667,265), root:(667,265),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179702, (667,262), root:(667,262),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179714, (667,259), root:(667,259),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179725, (667,257), root:(667,257),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179737, (667,255), root:(667,255),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179749, (667,254), root:(667,254),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179761, (667,252), root:(667,252),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179773, (667,250), root:(667,250),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179785, (667,248), root:(667,248),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179796, (668,246), root:(668,246),
+    state 0x0, is_hint 0, same_screen YES
+
+MotionNotify event, serial 13, synthetic NO, window 0x9c,
+    root 0x9c, subw 0x400034, time 8179808, (668,244), root:(668,244),
+    state 0x0, is_hint 0, same_screen YES

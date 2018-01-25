@@ -1,0 +1,6 @@
+#
+# shis = save history
+#
+#
+
+history >> $HOME/backup/sav_history.txt

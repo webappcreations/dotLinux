@@ -1,0 +1,11 @@
+#sce
+# hs grep histroy.sav
+# Erstellen oder Verändern eines Shellscripts
+# 
+
+[ -z "$1" ] && exit 1
+
+
+
+
+ls -al --time-style=+%D | grep --color=auto "$1/[1-9][1-9]/12"

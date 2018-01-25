@@ -1,0 +1,106 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import os, sys, re, time, subprocess
+
+    # Pen button to switch
+wacBtn = 'Button2'
+
+    # X buttons to choose from
+xBtns = ['2', '3']
+
+
+## If a local xsetwacom is installed, it should probably take precedent (?)
+if os.path.isfile('/usr/local/bin/xsetwacom'):
+    xsetwacom = '/usr/local/bin/xsetwacom'
+elif os.path.isfile('/usr/bin/xsetwacom'):
+    xsetwacom = '/usr/bin/xsetwacom'
+else:
+    ## If it's not one of those two, just hope it's in the path somewhere.
+    xsetwacom = 'xsetwacom'
+
+xinput = '/usr/bin/xinput'
+
+def main():
+    if len(sys.argv) < 2:     # No button specified, just go to the next one in the preferred list
+        cb = getCurrentButton()
+        if cb in xBtns:
+            cInd = (xBtns.index(cb)+1) % len(xBtns)
+            next = xBtns[cInd]
+        else:
+            next = xBtns[0]
+    else:
+        next = sys.argv[1]
+        if not next in xBtns:
+            sys.stderr.write("Button %s not allowed.\n" % next)
+            sys.exit(-1)
+    print "Setting %s to %s" % (wacBtn, next)
+    setButton(next)
+
+
+
+def runCmd(cmd):
+    c = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    rval = c.wait()
+    stdout = c.stdout.read()
+    stderr = c.stderr.read()
+    if rval != 0:
+        sys.stderr.write("WARNING--Command failed (returned %d):\n  %s\n" % (rval, cmd))
+        sys.stderr.write(stdout)
+        sys.stderr.write(stderr)
+    return (rval, stdout.split('\n'), stderr.split('\n'))
+
+#def runCmd(cmd):
+    #f = os.popen(cmd)
+    #l = f.readlines()
+    #f.close()
+    #return l
+
+def getCurrentButton():
+    setEnv()
+    b = runCmd("xsetwacom get %s %s" % (listDevices()[0], wacBtn))[1][0].strip()
+    #print "current:", b
+    return b
+
+def setButton(b):
+    setEnv()
+    #print "devices:", listDevices()
+    for d in listDevices():
+        runCmd("xsetwacom set %s %s %s" % (d, wacBtn, b))
+            ## workaround for xsetwacom bug
+        runCmd("xsetwacom set %s Button1 1" % d)
+    for i in range(0, int(b)):
+        setLed(0, "off")
+        time.sleep(0.1)
+        setLed(0, "on")
+        time.sleep(0.1)
+
+def setEnv():
+    if os.system('pidof kdm') == 0:
+        kdmsts = '/var/lib/kdm/kdmsts'
+        if os.access(kdmsts, os.R_OK):
+            kdmdata = open(kdmsts).readlines()
+            userline = filter(lambda s: re.match(r':0=', s), kdmdata)[0]
+            user = re.sub(r':0=', '', userline).strip()
+            os.environ['DISPLAY'] = ':0.0'
+            os.environ['XAUTHORITY'] = '/home/%s/.Xauthority' % user
+    elif os.system('pidof gdm') == 0:
+        os.environ['DISPLAY'] = ':0.0'
+        os.environ['XAUTHORITY'] = '/var/lib/gdm/:0.Xauth'
+    
+def setLed(n, mode):
+    fd = open('/proc/acpi/ibm/led', 'w')
+    fd.write("%d  %s" % (n, mode))
+    fd.close()
+
+def listDevices():
+    cmd = runCmd("%s --list" % xinput)[1]                                                                                                                                    
+    dev = []                                                                                                                                                                 
+    for s in cmd:                                                                                                                                                            
+        m = re.search(r'Serial Wacom Table.*id=\d*', s)                                                                                                                      
+        if m != None:                                                                                                                                                        
+            dev.append(re.sub(r'[\WA-Za-z]', '', m.group(0)))                                                                                                                 
+    return dev     
+
+
+main()

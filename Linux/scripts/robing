@@ -1,0 +1,4 @@
+FLASH=`ps x | awk '/libflashplayer.so\ /{print $1}'`
+cd /proc/$FLASH/fd/ && ls -shl | grep deleted | grep tmp | awk '{print $10}' 
+
+cd /proc/$FLASH/fd/

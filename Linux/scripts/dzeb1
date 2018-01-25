@@ -1,0 +1,7 @@
+
+
+IPATH='xpm/a.xpm'
+#t-dd-249030_design-scaled.xbm
+#(echo "foo ^ca(1, echo one)^fg(red)click me and i'll echo one^fg()^ca() bar"; sleep 20) | dzen2 -h 22 -y 724
+#(echo "^c(10) Test-^i(~/xpm/t-dd-249030_design-scaled.xbm)-icon ^co(10)"; sleep 200) | dzen2 -h 22 -y 724
+(echo "^c(20)^c(15)^c(10)^c(5) Test-^i(${IPATH})-icon ^co(10)^co(15)^co(20)^co(40)"; sleep 200) | dzen2 -h 22 -y 724

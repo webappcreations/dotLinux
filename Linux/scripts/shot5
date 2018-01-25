@@ -1,0 +1,8 @@
+#
+# shot 
+# using scrot + filename to save screenshots from the run comand field or of cause the console itself
+# part of myLinux (this should be a variable)
+
+[ -z "$1" ] && exit 1
+
+scrot -d 5 ~/myLinux/shots/$1.png

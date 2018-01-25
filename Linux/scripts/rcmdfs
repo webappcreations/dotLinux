@@ -1,0 +1,13 @@
+##
+# recordmydesktop
+#
+#
+
+[ -z "$1" ] && exit 1
+#recordmydesktop --full-shots -o ~/rcmd/$1.ogv
+#recordmydesktop --use-jack system:capture_1 --v_bitrate 2000000
+#recordmydesktop --fps 24 --v_bitrate 2000000 -o ~/rcmd/$1.ogv
+#recordmydesktop --fps 24 --quick-subsampling --v_bitrate 2000000 -o ~/rcmd/$1.ogv
+#recordmydesktop --fps 30 --zero-compression --v_quality 63 --v_bitrate 2000000 -o ~/rcmd/$1.ogv
+#recordmydesktop --fps 30 --v_quality 63 --v_bitrate 2000000 -o ~/rcmd/$1.ogv
+recordmydesktop --fps 30 --quick-subsampling --full-shots  --v_quality 63 --v_bitrate 2000000 -o ~/rcmd/$1.ogv

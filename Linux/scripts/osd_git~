@@ -1,0 +1,36 @@
+#--The vertical position of the text. POS can be top, middle, or bottom. The default is top.
+osd_pos="top"
+#--The number of pixels the text is offset from the top or bottom of the display. The default is 0.
+osd_offset=44
+#--The horizontal alignment of the text. ALIGN can be left, centre or right. The default is centre.
+osd_align="right"
+#--The number of pixels the text is indented from the left or right of the display. The default is 0.
+osd_indent=0
+#--The font used to display the text. The default is fixed, which may be too small to see clearly.
+osd_font="-misc-dejavu sans light-extralight-r-normal--20-0-0-0-p-0-iso8859-1"
+#--The text colour. The default is red.
+osd_colour="#009BF9"
+#--The number of seconds the text is displayed before being removed from the display. The default is 5.
+osd_delay=100
+#--The maximum number of lines that can be displayed. The default is 5.
+osd_lines=5
+#--The number of pixels the shadow is offset behind the text. The default is 0, so no shadow is displayed.
+osd_shadow=1
+#--The colour of the shadow. The default is black.
+osd_shadowcolour="black"
+#--The width of the outline, in pixels. The default is 0, so no outline is displayed.
+osd_outline=1
+#--The colour of the outline. The default is black.
+osd_outlinecolour="black"
+#--This option affects screen redrawing. If SCROLL_AGE seconds pass before a new line is ready (for example, you're reading from a pipe), the display is cleared instead of being scrolled. The default is 0, which means all lines are added to the scroll.
+osd_age=100
+
+delay=5
+
+
+BRANCH=`git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/{\1}/'` #Zeigt den aktuellen branch an ex.: {master}
+
+
+
+
+echo $BRANCH | osd_cat --pos="$osd_pos" --offset="$osd_offset" --align="$osd_align" --indent="$osd_indent" --font="$osd_font" --colour="$osd_colour" --delay="$osd_delay" --lines="$osd_lines" --shadow="$osd_shadow" --shadowcolour="$osd_shadowcolour" --outline="$osd_outline" --outlinecolour="$osd_outlinecolour" --age="$osd_age" -s "$delay"&

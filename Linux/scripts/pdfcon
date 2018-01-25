@@ -1,0 +1,25 @@
+while [ $# -gt 0 ]; do 		
+#Wiederhole solange Paramter vorhanden, wenn z.B. mehrere Dateien markiert!
+
+filename=$1                              
+#aktuellen Parameter(Dateiname) in die Variable speichern
+
+jpg_file=`echo "$filename" | sed 's/\.\w*$/.jpg/'`     
+#ist sozusagen eine Funktion, in der im Dateinamen die Zeichen nach dem Punkt durch jpg ersetzt werden
+
+#convert -quality 80 -density 100 "$filename" "$jpg_file"  
+#convert -geometry 1600x1600 -density 200x200 -quality 80 "$filename" "$jpg_file"  
+#convert -geometry 1600x1600 -density 200x200 -quality 95 -colorspace gray -level 10%,90%,1 -blur 2 +dither -monochrome "$filename" "$jpg_file"  
+#convert -geometry 1600x1600 -quality 100 -colorspace gray -level 10%,90%,1 -blur 2 +dither -monochrome "$filename" "$jpg_file"  
+convert -geometry 1600x1600 -density 300x300 -quality 90 "$filename" "$jpg_file"  
+#hier wird die aktuelle PDF tatsächlich in jpg konvertiert
+
+shift                                    
+#nächsten Parameter zur Verfügung stellen
+
+done
+
+
+#convert -compress jpeg *.jpg output.pdf
+#andere Richtung...
+

@@ -1,0 +1,58 @@
+#!/bin/bash
+# 03-17-2011 Crouse
+ 
+### screen - Notes on Screen.
+export TERM=xtermc
+echo ""
+ tput bold;tput setf 2;
+echo " Crouse's Screen Notes"
+echo "http://en.gentoo-wiki.com/wiki/Screen"
+echo "---------------------------------------------------------------"
+tput sgr0;tput setf 2;
+echo "Type: screen to start."
+echo "---------------------"
+tput setf 6;
+echo "
+C-a c :Creates new window
+C-a A :Rename Window-set window title
+C-a S :Split Horizontal
+C-a V :Split Vertical
+C-a TAB : Move to next region on split screen
+C-a Q : Make Active Screen full screen
+C-a \" :Display Window List
+C-a C-a :Go to previous window
+C-a k :kill current window
+C-a d :detach from session
+C-a X :removes REGION (ie:a split)
+C-a x :locks session
+C-a n : move to the next region"
+echo "C-a p : move to the previous region"
+echo "C-a M : Start/Stop monitoring in tabs"
+echo "C-a s : xoff -stops all output to the screen (bad lol)."
+echo "C-a C-q : restores frozen screens--usually do do C-a s ;) lol"
+echo "C-a z : Starts/Stops suspend command."
+echo "  --------------"
+echo "C-a :  --- puts Screen into command mode(think vi)."
+echo "C-a :quit  --- quits entire session"
+echo "C-a :resize 30  --- makes the current focused region 30 lines high"
+echo "C-a :fit --- fits screensize to new terminal size"
+echo "C-a :remove --removes a region -same as C-a X"
+echo "C-a +   ----- makes current region larger"
+echo "C-a -   ----- makres the current region smaller"
+echo " "
+echo " EMACS NOTE: C-a a (will take you back to the beginning of the line)."
+echo " "
+tput setf 2;
+echo "MultiUser Mode:"
+ tput setf 6;
+echo "START WITH:"
+echo "Press Ctrl+a, then type :multiuser on and press Enter."
+echo "Press Ctrl+a, then type :acladd USERNAME"
+echo "CONNECT WITH:"
+echo "screen -x USERNAME/"
+echo ""
+tput bold;tput setf 7;
+echo "---------------------------------------------------------------"
+tput sgr0
+echo " "
+exit 0
