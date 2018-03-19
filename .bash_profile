@@ -9,12 +9,12 @@ stty -ixon
 setxkbmap -option caps:escape &
 
 
-for DOTFILE in `find $HOME/Linux/dotfiles`
+for DOTFILE in `find $HOME/dotLinux`
 do
   [ -f “$DOTFILE” ] && source “$DOTFILE”
 done
 
-export PATH="$PATH:$HOME/Linux/dotfiles/scripts:$HOME/.config/composer/vendor/bin";
+export PATH="$PATH:$HOME/$DOTFILE/Linux/scripts:$HOME/.config/composer/vendor/bin";
 
-export DOTFILES="$HOME/Linux/dotfiles";
-export SCRIPTS="$HOME/Linux/dotfiles/scripts";
+export DOTFILES="$HOME/$DOTFILE/Linux/";
+export SCRIPTS="$HOME/$DOTFILE/Linux/scripts";

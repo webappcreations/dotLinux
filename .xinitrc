@@ -35,5 +35,6 @@ case $1 in
   *             ) exec dbus-launch $DEFAULT_SESSION ;;
 esac
 
-
+xrdb -merge ~/.Xresources 
+loadkeys de-latin1
 
